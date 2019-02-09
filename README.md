@@ -10,6 +10,20 @@ npm install -g @angular/cli
 
 ng new AngularMaterialTable
 
+## Install Hammer.js that is an optional dependency and helps with touch support for the few of the components 
+
+npm install --save hammerjs
+
+## Install Angular Material and Angular Animations 
+
+npm install --save @angular/material @angular/animations @angular/cdk 
+
+## Include hammerjs into angular.json file 
+
+"scripts": [
+  "./node_modules/hammerjs/hammer.min.js"
+]
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

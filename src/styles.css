@@ -1,0 +1,7 @@
+/* Angular Material comes with some pre-built themes. It provides set off the colors and basic 
+ * styling. The main available themes are: 
+ * indigo-pink
+ * deeppurple-amber
+ * pink-bluegrey
+ */
+ @import '~@angular/material/prebuilt-themes/indigo-pink.css';

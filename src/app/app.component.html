@@ -1,0 +1,39 @@
+<div>
+  <!-- 通过双向 binding 将 "displayedData" 绑定到数据源 -->
+  <!-- 通过 matSort 将所有的头标记为可以排序 -->
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- 为每个 column 设置一个容器 -->
+    <!-- 将接口元素映射到 DOM Column 元素 -->
+    <ng-container matColumnDef="position"> 
+      <!-- 定义头格子 DOM 元素并且遍历所有数据将其映射到对于位置 -->
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container> 
+
+    <!-- mat-header-cell 规定当前 th 元素为材料类头格子, *matHeaderCellRef 定义其元素实体 -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <!-- 展示当前 header 下的所有数据 -->
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- 将每一个 Column 元素映射到 Column 数组中的对于元素 -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
+      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <!-- 定义头排 DOM 元素并将上边所有定义的 Column Ref 映射到对应头排元素上 -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- 规定每一排的每个元素为一个上边已经定义了的4个容器元素中的一个 -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- 创建分页器元素 -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+</div>
